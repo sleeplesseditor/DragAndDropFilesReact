@@ -38,13 +38,22 @@ li a {
     margin-right: 1.5rem;
 }
 
+/* DROPZONE */
+
 .dropzone {
-  margin: 5rem 10rem;
   background-color: rgb(243, 243, 240);
   padding: 1.5rem;
   border: dotted 2px;
   transition: all .2s ease-in-out;
   cursor: pointer;
+}
+
+.dropzone-filelist li {
+  text-align: left;
+}
+
+.dropzone, .dropzone-filelist {
+  margin: 5rem 10rem;
 }
 
 .dropzone:hover {

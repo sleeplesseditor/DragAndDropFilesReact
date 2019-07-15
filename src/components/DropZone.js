@@ -15,18 +15,33 @@ function DropZone() {
 
     acceptedFiles.forEach(file => reader.readAsBinaryString(file))
   }, [])
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+  
+  const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone({onDrop});
+  const files = acceptedFiles.map(file => (
+      <li key={file.path}>
+        {file.path} – {file.size} bytes
+      </li>
+  )) 
 
   return (
-    <div {...getRootProps()} className="dropzone">
-      <input {...getInputProps()} className="dropzone-input"/>
-      {
-        isDragActive ?
-          <p>Drop Your Files Here...</p> :
-          <p>Drag 'n' Drop Some Files Here, or Click to Select Files</p>
-      }
-    </div>
-  )
+    <React.Fragment>
+        <div>
+            <div {...getRootProps()} className="dropzone">
+                <input {...getInputProps()} className="dropzone-input"/>
+                {
+                    isDragActive ?
+                    <p>Drop Your Files Here...</p> :
+                    <p>Drag 'n' Drop Some Files Here, or Click to Select Files</p>
+                }
+            </div>
+            <div className="dropzone-filelist">
+                <hr />
+                <h4>Files</h4>
+                <ul>{files}</ul>
+            </div>
+        </div>
+    </React.Fragment>
+  );
 };
 
 export default DropZone;
