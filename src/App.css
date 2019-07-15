@@ -19,7 +19,8 @@ li a {
     text-decoration: none;
 }
 
-.navbar p {
+.navbar p,
+.navbar-heading {
     /* display: flex; */
     color: white;
     text-transform: uppercase;

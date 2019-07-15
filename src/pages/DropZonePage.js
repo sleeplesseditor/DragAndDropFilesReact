@@ -6,8 +6,7 @@ function DropZonePage() {
   return (
     <React.Fragment>
         <div className="App">
-            <h3>DropZone File Upload</h3>
-            <br />
+            <h2>DropZone File Upload</h2>
             <DropZone />
         </div>
     </React.Fragment>
