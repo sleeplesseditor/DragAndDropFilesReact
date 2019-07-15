@@ -44,12 +44,7 @@ export default function Header() {
             <Link 
                 to={"/"}
                 style={{ textDecoration: 'none' }}
-            >
-                Home
-            </Link>
-            <Link 
-                to={"/"}
-                style={{ textDecoration: 'none' }}
+                onClick={toggleNav}
             >
                 DropZone
             </Link>
