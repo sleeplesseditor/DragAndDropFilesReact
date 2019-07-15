@@ -20,7 +20,7 @@ function DropZone() {
   return (
     <div {...getRootProps()} className="dropzone">
       <input {...getInputProps()} className="dropzone-input"/>
-      <p>Drag 'n' drop some files here, or click to select files</p>
+      <p>Drag 'n' Drop Some Files Here, or Click to Select Files</p>
     </div>
   )
 };
