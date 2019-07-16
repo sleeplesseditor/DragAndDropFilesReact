@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+.App h2 {
+  margin-top: 8rem;
+}
+
 /* Navbar */
 .navbar {
     display: flex;
@@ -38,19 +42,6 @@ li a {
     flex-direction: row;
     margin-right: 1.5rem;
 }
-/* 
-.MuiMenu-list {
-  color: #000 !important;
-}
-
-.MuiButton-label, .MuiMenuItem-root {
-  color: white !important;
-  transition: all .2s ease-in-out;
-}
-
-.MuiButton-label:hover {
-  color: rgb(153, 153, 153);
-} */
 
 /* DROPZONE */
 
@@ -82,7 +73,7 @@ li a {
   border: 1px solid #eaeaea;
   margin-bottom: 8;
   margin-right: 8;
-  width: 100%;
+  width: 25%;
   height: 100%;
   box-sizing: border-box;
 }
@@ -103,4 +94,17 @@ li a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+/* Sortbale HOC */
+.sortable-hoc-container {
+  margin: 5rem 10rem;
+  list-style: none;
+}
+
+.sortable-item {
+  margin: 1rem;
+  padding: 1rem;
+  border: 1px solid #000;
+  cursor: pointer;
 }

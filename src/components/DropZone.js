@@ -19,7 +19,7 @@ function DropZone() {
     // }, [])
 
     const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone({
-        accept: 'image/*',
+        accept: 'image/*, .pdf, .doc',
         onDrop: acceptedFiles => {
             setImageFiles(acceptedFiles.map(file => Object.assign(file, {
               preview: URL.createObjectURL(file)

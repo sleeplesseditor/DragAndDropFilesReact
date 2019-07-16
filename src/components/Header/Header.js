@@ -48,6 +48,13 @@ export default function Header() {
             >
                 DropZone
             </Link>
+            <Link 
+                to={"/sortablehoc"}
+                style={{ textDecoration: 'none' }}
+                onClick={toggleNav}
+            >
+                Sortable Higher Order Component
+            </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
