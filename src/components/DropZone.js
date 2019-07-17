@@ -18,7 +18,7 @@ function DropZone() {
     //     acceptedFiles.forEach(file => reader.readAsBinaryString(file))
     // }, [])
 
-    const {acceptedFiles, getRootProps, getInputProps, isDragActive} = useDropzone({
+    const {acceptedFiles, getRootProps, getInputProps, isDragActive, isDragReject} = useDropzone({
         accept: 'image/*, .pdf, .doc',
         onDrop: acceptedFiles => {
             setImageFiles(acceptedFiles.map(file => Object.assign(file, {
@@ -55,14 +55,12 @@ function DropZone() {
 
     return (
         <React.Fragment>
-            <div>
+            <div className="dropzone-container">
                 <div {...getRootProps()} className="dropzone">
                     <input {...getInputProps()} className="dropzone-input"/>
-                    {
-                        isDragActive ?
-                        <p>Drop Your Files Here...</p> :
-                        <p>Drag 'n' Drop Some Files Here, or Click to Select Files</p>
-                    }
+                    {!isDragActive && 'Drag \'n\' Drop Some Files Here, or Click to Select Files'}
+                    {isDragActive && !isDragReject && "Drop Your Files Here..."}
+                    {isDragReject && "File Type Not Accepted, Sorry!"}
                 </div>
                 <div className="dropzone-filelist">
                     <hr />
