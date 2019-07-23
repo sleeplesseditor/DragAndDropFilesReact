@@ -58,8 +58,7 @@ li a {
 }
 
 .dropzone, 
-.dropzone-filelist, 
-.dropzone-thumblist {
+.dropzone-filelist {
   margin: 2rem 10rem;
   width: 50%;
 }
@@ -76,12 +75,8 @@ li a {
 
 .dropzone-thumb {
   display: inline-flex;
-  border-radius: 2;
-  border: 1px solid #eaeaea;
-  margin-bottom: 8;
-  margin-right: 8;
   width: 50%;
-  height: 100%;
+  height: 50%;
   box-sizing: border-box;
 }
 
@@ -95,12 +90,14 @@ li a {
   display: block;
   width: 100%;
   height: 100%;
+  margin: 0.5rem;
 }
 
 .dropzone-thumblist {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 /* Sortable HOC */
