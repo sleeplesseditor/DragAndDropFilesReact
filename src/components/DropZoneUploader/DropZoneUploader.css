@@ -1,0 +1,13 @@
+/* DROPZONE UPLOADER */
+
+.dropzone-uploader-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10rem;
+    width: 80%;
+}
+
+.dzu-dropzone {
+    overflow: hidden;
+}

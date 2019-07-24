@@ -33,7 +33,14 @@ export default function Header() {
 
   return (
     <header className="Header">
-        <h3 className="navbar-heading">React Drag and Drop</h3>
+        <h3 className="navbar-heading">
+          <Link 
+            to={"/"}
+            style={{ textDecoration: 'none' }}
+          >
+            React Drag and Drop
+          </Link>
+        </h3>
       <CSSTransition
         in={!isSmallScreen || isNavVisible}
         timeout={350}
@@ -47,6 +54,13 @@ export default function Header() {
                 onClick={toggleNav}
             >
                 DropZone
+            </Link>
+            <Link 
+                to={"/dropzone-uploader"}
+                style={{ textDecoration: 'none' }}
+                onClick={toggleNav}
+            >
+                DropZone Uploader
             </Link>
             <Link 
                 to={"/sortablehoc"}
