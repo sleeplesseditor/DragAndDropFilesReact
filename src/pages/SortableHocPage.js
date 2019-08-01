@@ -1,5 +1,5 @@
 import React from 'react';
-import SortableHoc from '../components/SortableHoc';
+import SortableHoc from '../components/SortableHOC/SortableHoc';
 
 function SortableHocPage() {
 

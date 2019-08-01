@@ -22,7 +22,7 @@
 .dropzone, 
 .dropzone-filelist {
   margin: 2rem 10rem;
-  width: 50%;
+  width: 75%;
 }
 
 .dropzone:hover {
@@ -37,8 +37,8 @@
 
 .dropzone-thumb {
   display: inline-flex;
-  width: 50%;
-  height: 50%;
+  width: 25%;
+  height: 100%;
   box-sizing: border-box;
 }
 

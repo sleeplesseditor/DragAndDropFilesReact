@@ -1,18 +1,51 @@
 import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import {useDropzone} from 'react-dropzone';
+
 
 function DropZone() {
     const [imageFiles, setImageFiles] = useState([]);
     const maxSize = 5048576;
 
+    const cloudinary_api_key = require('./dropZoneConfig').CLOUDINARY_API_KEY;
+    const cloudinary_preset = require('./dropZoneConfig').CLOUDINARY_PRESET;
+    const cloudinary_url = require('./dropZoneConfig').CLOUDINARY_URL;
+
+    const handleDrop = (files) => {
+        // Push all the axios request promise into a single array
+      const uploaders = files.map(file => {
+          // Initial FormData
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("tags", `dropZone, demo, upload`);
+          formData.append("upload_preset", `${cloudinary_preset}`); // Replace the preset name with your own
+          formData.append("api_key", `${cloudinary_api_key}`); // Replace API key with your own Cloudinary key
+          formData.append("timestamp", (Date.now() / 1000) || 0);
+          
+          // Make an AJAX upload request using Axios (replace Cloudinary URL below with your own)
+          return axios.post(`http://api.cloudinary.com/v1_1/${cloudinary_url}/image/upload`, formData, {
+              headers: { "X-Requested-With": "XMLHttpRequest" },
+          }).then(response => {
+              const data = response.data;
+              console.log(data);
+
+            // Once all the files are uploaded 
+            axios.all(uploaders).then(() => {
+                setImageFiles(files.map(file => Object.assign(file, {
+                    preview: URL.createObjectURL(file),
+                    // URL only works for last file in group - TO BE RESOLVED
+                    fileUrl: data.secure_url
+                })));
+            });
+          })
+      });
+
+  }
+
     const {acceptedFiles, getRootProps, getInputProps, isDragActive, isDragReject, rejectedFiles
     } = useDropzone({
-        accept: 'application/pdf, image/*, text/plain',
-        onDrop: acceptedFiles => {
-            setImageFiles(acceptedFiles.map(file => Object.assign(file, {
-              preview: URL.createObjectURL(file)
-            })));
-        },
+        accept: 'image/*',
+        onDrop: handleDrop,
         minSize: 0,
         maxSize,
     });
@@ -28,13 +61,15 @@ function DropZone() {
             className="dropzone-thumb"
             key={file.name}
         >
-        <div className="dropzone-thumbinner">
-            <img
-                className="dropzone-img"
-                src={file.preview}
-                alt={file.name}
-            />
-        </div>
+            <div className="dropzone-thumbinner">
+                <a href={file.fileUrl}>
+                    <img
+                        className="dropzone-img"
+                        src={file.preview}
+                        alt={file.name}
+                    />
+                </a>
+            </div>
         </div>
     ));
 

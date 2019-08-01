@@ -5,8 +5,8 @@ import Dropzone from 'react-dropzone-uploader';
 
 function DropZoneUploader() {
     const getUploadParams = ({ meta }) => { return { url: 'https://httpbin.org/post' } };
-    const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) };
-    const handleSubmit = (files) => { console.log(files.map(f => f.meta)) };
+    const handleChangeStatus = ({ meta, file }, status) => { console.log('Status change', status, meta, file) };
+    const handleSubmit = (files) => { console.log('File uploaded', files.map(f => f.meta)) };
 
     return (
         <div className="dropzone-uploader-container">

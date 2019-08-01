@@ -1,5 +1,5 @@
 import React from 'react';
-import DropZone from '../components/DropZone';
+import DropZone from '../components/DropZone/DropZone';
 
 function DropZonePage() {
 
