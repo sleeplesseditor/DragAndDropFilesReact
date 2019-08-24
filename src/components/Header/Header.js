@@ -69,6 +69,13 @@ export default function Header() {
             >
                 Sortable Higher Order Components
             </Link>
+            <Link 
+                to={"/react-draggable"}
+                style={{ textDecoration: 'none' }}
+                onClick={toggleNav}
+            >
+                React Draggable
+            </Link>
         </nav>
       </CSSTransition>
       <button onClick={toggleNav} className="header-button">
