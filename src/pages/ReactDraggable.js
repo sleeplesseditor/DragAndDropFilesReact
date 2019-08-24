@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDraggable from '../components/SortableHOC/SortableHoc';
+import ReactDraggable from '../components/ReactDraggable/ReactDraggable';
 
 function SortableHocPage() {
 
