@@ -2,29 +2,7 @@ import React, {Component} from 'react';
 import Draggable from 'react-draggable';
 import './Draggable.css';
 class ReactDraggable extends Component {
-    constructor() {
-        super();
-        this.state = {
-            activeDrags: 0,
-            deltaPosition: {
-                x: 0, y: 0
-            },
-            controlledPosition: {
-                x: -400, y: 200
-            }
-        };
-    }
-    
-    handleDrag(e, ui) {
-        const {x, y} = this.state.deltaPosition;
-        this.setState({
-            deltaPosition: {
-                x: x + ui.deltaX,
-                y: y + ui.deltaY,
-            }
-        });
-    };
-      
+          
     render() {
         const dragHandlers = {onStart: this.handleStart, onStop: this.handleStop};
         return (
